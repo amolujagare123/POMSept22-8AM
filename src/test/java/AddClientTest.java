@@ -17,7 +17,7 @@ public class AddClientTest {
     public void doLogin() throws IOException {
 
         WebDriverManager.chromedriver().setup();
-         driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
 
         driver.get(getUrl());
@@ -37,7 +37,12 @@ public class AddClientTest {
 
         AddClient addClient = new AddClient(driver);
 
-        addClient.setClientName("Modin");
+        addClient.setLanguage("French"/*,driver*/);
+        addClient.setCountry("Myanmar [Burma]");
+        addClient.setGender("Other");
+        addClient.setBirthDate("12/29/1985");
+
+       /* addClient.setClientName("Modin");
         addClient.setClientSurname("Gadikar");
         addClient.setClientAddress1("xyz");
         addClient.setClientAddress2("abc");
@@ -51,7 +56,7 @@ public class AddClientTest {
         addClient.setClientWeb("www.google.com");
         addClient.setClientVat("434434");
         addClient.setClientTax("43434");
-        addClient.clickSave();
+        addClient.clickSave();*/
 
 
     }

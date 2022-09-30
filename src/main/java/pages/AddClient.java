@@ -1,5 +1,7 @@
 package pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -64,6 +66,60 @@ public class AddClient {
     @FindBy (xpath = "//button[@id='btn-submit']")
     WebElement btnSave;
 
+    @FindBy (id ="select2-client_language-container")
+    WebElement containerLanguage;
+
+    @FindBy (xpath = "//input[@role='searchbox']")
+    WebElement searchBox;
+
+    WebDriver driver;
+
+    public void setLanguage(String language/*,WebDriver driver*/)
+    {
+        containerLanguage.click();
+        searchBox.sendKeys(language);
+        driver.findElement(By.xpath("//li[normalize-space()='"+language+"']")).click();
+    }
+
+
+    @FindBy (xpath = "//span[@id='select2-client_country-container']")
+    WebElement containerCountry;
+
+    public void setCountry(String country)
+    {
+        containerCountry.click();
+        searchBox.sendKeys(country);
+        driver.findElement(By.xpath("//li[normalize-space()='"+country+"']")).click();
+
+    }
+
+    @FindBy (xpath = "//input[@id='client_birthdate']")
+    WebElement birthDate;
+
+    public void setBirthDate(String bDate)
+    {
+       // birthDate.sendKeys(bDate);
+
+        System.out.println("birthday=" + bDate); // 05/29/1985
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].setAttribute('value','"+bDate+"')",birthDate);
+    }
+
+
+    @FindBy (xpath = "//span[@id='select2-client_gender-container']")
+    WebElement containerGender;
+
+    public void setGender(String gender)
+    {
+        containerGender.click();
+        driver.findElement(By.xpath("//li[normalize-space()='"+gender+"']")).click();
+
+    }
+
+
+
+
     public void clickSave()
     {
         btnSave.click();
@@ -72,6 +128,7 @@ public class AddClient {
     public AddClient(WebDriver driver)
     {
         PageFactory.initElements(driver,this);
+        this.driver = driver;
     }
 
     public void setClientName(String name)
