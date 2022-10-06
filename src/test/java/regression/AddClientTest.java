@@ -1,3 +1,5 @@
+package regression;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -37,18 +39,18 @@ public class AddClientTest {
 
         AddClient addClient = new AddClient(driver);
 
-        addClient.setLanguage("French"/*,driver*/);
-        addClient.setCountry("Myanmar [Burma]");
-        addClient.setGender("Other");
-        addClient.setBirthDate("12/29/1985");
 
-       /* addClient.setClientName("Modin");
+        addClient.setClientName("Modin");
         addClient.setClientSurname("Gadikar");
+        addClient.setLanguage("French");
         addClient.setClientAddress1("xyz");
         addClient.setClientAddress2("abc");
         addClient.setClientCity("pune");
         addClient.setClientState("MH");
         addClient.setClientZip("414008");
+        addClient.setCountry("Myanmar [Burma]");
+        addClient.setGender("Other");
+        addClient.setBirthDate("12/29/1985");
         addClient.setClientPhone("7787878");
         addClient.setClientFax("54545");
         addClient.setClientMobile("545454");
@@ -56,7 +58,7 @@ public class AddClientTest {
         addClient.setClientWeb("www.google.com");
         addClient.setClientVat("434434");
         addClient.setClientTax("43434");
-        addClient.clickSave();*/
+        addClient.clickSave();
 
 
     }
