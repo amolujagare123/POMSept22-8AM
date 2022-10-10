@@ -8,28 +8,13 @@ import org.testng.annotations.Test;
 import pages.AddClient;
 import pages.Login;
 import pages.Menu;
+import utility.DoLogin;
 
 import java.io.IOException;
 
 import static util.ConfigReader.*;
 
-public class AddClientTest {
-    WebDriver driver;
-    @BeforeClass
-    public void doLogin() throws IOException {
-
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-
-        driver.get(getUrl());
-
-        Login login = new Login(driver);
-
-        login.setTxtUsername(getUsername());
-        login.setTxtPassword(getPassword());
-        login.clickBtnLogin();
-    }
+public class AddClientTest extends DoLogin {
 
     @Test
     public void addClientTest()
